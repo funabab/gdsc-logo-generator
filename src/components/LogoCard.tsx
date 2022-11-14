@@ -4,6 +4,7 @@ import backgroundCheckerPattern from '../assets/images/bg-checkerboard.png'
 import { CgSoftwareDownload } from 'react-icons/cg'
 import { LogoColors, TemplateTypes } from '..'
 import { useGenerateLogo } from '../templates'
+import { useState } from 'react'
 
 interface Props {
   type: TemplateTypes
@@ -13,10 +14,23 @@ interface Props {
 
 const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
   const logoImgRef = useRef<HTMLImageElement>(null)
-  const {} = useGenerateLogo(logoImgRef, type, {
+  const [logoDownloading, setLogoDownloading] = useState(false)
+  const { download: downloadLogo } = useGenerateLogo(logoImgRef, type, {
     color: bg,
     text: label,
   })
+
+  const handleDownloadImage = async () => {
+    setLogoDownloading(true)
+    try {
+      await downloadLogo()
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setLogoDownloading(false)
+    }
+  }
+
   return (
     <Stack shadow="md" bg="gray.600" rounded="lg" overflow="hidden">
       <Box
@@ -47,6 +61,7 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
             base: 'full',
             md: 'max-content',
           }}
+          onClick={handleDownloadImage}
         >
           Download
         </Button>
