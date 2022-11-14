@@ -10,4 +10,4 @@ export interface LogoTemplateSize {
   height: number
 }
 
-export type TemplateTypes = 'gdsc-square'
+export type TemplateTypes = 'gdsc-square' | 'gdsc-banner'

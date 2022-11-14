@@ -9,6 +9,8 @@ import {
 import { RiCheckboxBlankFill, RiCheckboxBlankLine } from 'react-icons/ri'
 import { LogoColors } from '..'
 
+export const MAX_CHARS = 36
+
 interface Props {
   label: string
   onChangeColor: (color: LogoColors) => void
@@ -27,6 +29,7 @@ const LabelInput: React.FC<Partial<Props>> = ({
         onChange={(e) => onChangeLabel?.(e.target.value)}
         focusBorderColor="green.500"
         borderColor="green.400"
+        maxLength={MAX_CHARS}
       />
       <ButtonGroup colorScheme="green" flexShrink={0} isAttached>
         <Tooltip label="Background white">

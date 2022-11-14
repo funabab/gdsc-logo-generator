@@ -2,13 +2,19 @@ import React from 'react'
 import { useCallback } from 'react'
 import { useEffect } from 'react'
 import satori from 'satori'
-import { LogoTemplateProps, LogoTemplateSize, TemplateTypes } from '..'
+import {
+  LogoColors,
+  LogoTemplateProps,
+  LogoTemplateSize,
+  TemplateTypes,
+} from '..'
 import GDSCSquare, { GDSCSquareSize } from './GDSCSquare'
 import fontOopenSansRegular from '../assets/fonts/OpenSans/OpenSans-Regular.ttf'
 import fontOopenSansMedium from '../assets/fonts/OpenSans/OpenSans-Medium.ttf'
 import fontOopenSansBold from '../assets/fonts/OpenSans/OpenSans-Bold.ttf'
 import { useRef } from 'react'
 import { useMemo } from 'react'
+import GDSCBanner, { GDSCBannerSize } from './GDSCBanner'
 
 const fontOpenSansRegularBuffer = fetch(fontOopenSansRegular).then((res) =>
   res.arrayBuffer()
@@ -20,7 +26,9 @@ const fontOpenSansBoldBuffer = fetch(fontOopenSansBold).then((res) =>
   res.arrayBuffer()
 )
 
-const TEMPLATES: Record<
+export const TEMPLATES_COLORS: LogoColors[] = ['white', 'black', 'transparent']
+
+export const TEMPLATES: Record<
   TemplateTypes,
   {
     size: LogoTemplateSize
@@ -30,6 +38,10 @@ const TEMPLATES: Record<
   'gdsc-square': {
     size: GDSCSquareSize,
     Component: GDSCSquare,
+  },
+  'gdsc-banner': {
+    size: GDSCBannerSize,
+    Component: GDSCBanner,
   },
 }
 
