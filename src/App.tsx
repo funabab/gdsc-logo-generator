@@ -1,61 +1,18 @@
-import { Flex, Heading, Image, Stack, Text } from '@chakra-ui/react'
-import logo from './assets/logo.svg'
+import { Box, Container } from '@chakra-ui/react'
+import Navbar from './components/Navbar'
+import { RiCheckboxBlankFill, RiCheckboxBlankLine } from 'react-icons/ri'
+import LabelInput from './components/LabelInput'
 
 const App = () => {
   return (
-    <Stack minH="100vh" bg="gray.700" color="white">
-      <Stack shadow="lg">
-        <Flex
-          align="center"
-          justify="space-between"
-          py="4"
-          px="4"
-          maxW="7xl"
-          w="full"
-          mx="auto"
-        >
-          <Heading
-            as="h1"
-            display="flex"
-            alignItems="center"
-            columnGap={{
-              base: 2,
-              md: 3,
-            }}
-          >
-            <Image
-              src={logo}
-              h={{
-                base: '5',
-                md: '10',
-              }}
-              alt=""
-            />
-            <Text
-              flexShrink={0}
-              as="span"
-              fontSize={{
-                base: 'lg',
-                md: '2xl',
-              }}
-            >
-              GDSC KWASU
-            </Text>
-            <Text
-              as="span"
-              fontSize="xs"
-              alignSelf="end"
-              mb={{
-                base: 1,
-                md: 2,
-              }}
-            >
-              Logo generator
-            </Text>
-          </Heading>
-        </Flex>
-      </Stack>
-    </Stack>
+    <Box minH="100vh" bg="gray.700" color="white">
+      <Navbar />
+      <Container maxW="7xl" mt={10}>
+        <Box>
+          <LabelInput defaultLabel="Enter name" />
+        </Box>
+      </Container>
+    </Box>
   )
 }
 
