@@ -7,24 +7,26 @@ import {
   Tooltip,
 } from '@chakra-ui/react'
 import { RiCheckboxBlankFill, RiCheckboxBlankLine } from 'react-icons/ri'
-import { LabelColors } from '..'
+import { LogoColors } from '..'
 
 interface Props {
-  defaultLabel: string
-  onChangeColor: (color: LabelColors) => void
+  label: string
+  onChangeColor: (color: LogoColors) => void
   onChangeLabel: (text: string) => void
 }
 
 const LabelInput: React.FC<Partial<Props>> = ({
-  defaultLabel,
+  label,
   onChangeColor,
   onChangeLabel,
 }) => {
   return (
     <HStack flex={1}>
       <Input
-        defaultValue={defaultLabel}
+        value={label}
         onChange={(e) => onChangeLabel?.(e.target.value)}
+        focusBorderColor="green.500"
+        borderColor="green.400"
       />
       <ButtonGroup colorScheme="green" flexShrink={0} isAttached>
         <Tooltip label="Background white">
