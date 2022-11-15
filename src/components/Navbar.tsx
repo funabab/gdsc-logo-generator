@@ -4,11 +4,13 @@ import {
   Container,
   Flex,
   Heading,
+  IconButton,
   Image,
-  Stack,
+  Link,
   Text,
 } from '@chakra-ui/react'
 import logo from '../assets/images/logo.svg'
+import { VscGithub } from 'react-icons/vsc'
 
 interface Props {}
 
@@ -34,16 +36,18 @@ const Navbar: React.FC<Props> = () => {
               }}
               alt=""
             />
-            <Text
-              flexShrink={0}
-              as="span"
-              fontSize={{
-                base: 'lg',
-                md: '2xl',
-              }}
-            >
-              GDSC KWASU
-            </Text>
+            <Link href="https://blog.gdsckwasu.club">
+              <Text
+                flexShrink={0}
+                as="span"
+                fontSize={{
+                  base: 'lg',
+                  md: '2xl',
+                }}
+              >
+                GDSC KWASU
+              </Text>
+            </Link>
             <Text
               as="span"
               fontSize="xs"
@@ -56,6 +60,16 @@ const Navbar: React.FC<Props> = () => {
               Logo generator
             </Text>
           </Heading>
+
+          <IconButton
+            aria-label="View source"
+            colorScheme="whiteAlpha"
+            fontSize="xl"
+            rounded="full"
+            href="https://github.com/gdsc-kwasu/gdsc-logo-generator"
+            as="a"
+            icon={<VscGithub />}
+          />
         </Flex>
       </Container>
     </Box>
