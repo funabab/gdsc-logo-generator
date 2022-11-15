@@ -117,6 +117,7 @@ export const useGenerateLogo = (
       canvas.width = size.width
       canvas.height = size.height
       const context = canvas.getContext('2d')
+      context?.clearRect(0, 0, size.width, size.height)
       context?.drawImage(img, 0, 0)
       anchor.setAttribute(
         'href',
