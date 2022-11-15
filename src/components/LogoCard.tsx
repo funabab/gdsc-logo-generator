@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useMemo } from 'react'
 import { CgSoftwareDownload } from 'react-icons/cg'
 import { AiOutlineLink } from 'react-icons/ai'
+import useIntersectionObserver from '@react-hook/intersection-observer'
 
 interface Props {
   type: TemplateTypes
@@ -16,10 +17,14 @@ interface Props {
 
 const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
   const logoImgRef = useRef<HTMLImageElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { isIntersecting } = useIntersectionObserver(containerRef)
+
   const [logoDownloading, setLogoDownloading] = useState(false)
   const { download: downloadLogo } = useGenerateLogo(logoImgRef, type, {
     color: bg,
     text: label,
+    enabled: isIntersecting,
   })
   const { hasCopied, setValue: setCopyValue, onCopy } = useClipboard('')
 
@@ -57,6 +62,7 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
       overflow="hidden"
       mb={4}
       id={shareUrl.hash}
+      ref={containerRef}
     >
       <Box
         flex={1}
