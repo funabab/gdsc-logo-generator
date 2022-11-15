@@ -1,4 +1,4 @@
-export type LogoColors = 'white' | 'black' | 'transparent'
+export type LogoColors = 'white' | 'black' | 'transparent' | 'monochrome'
 
 export interface LogoTemplateProps {
   text: string

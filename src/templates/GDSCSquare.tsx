@@ -1,6 +1,8 @@
 import React from 'react'
 import logo from '../assets/images/logo.svg'
+import logoWhite from '../assets/images/logo-white.svg'
 import { LogoTemplateProps, LogoTemplateSize } from '..'
+import { getLogoColors } from '.'
 
 export const GDSCSquareSize: LogoTemplateSize = {
   width: 2048,
@@ -12,24 +14,32 @@ const logoWidth = 300 * logoAspect
 const logoHeight = 300
 
 const GDSCSquare: React.FC<LogoTemplateProps> = ({ text, color }) => {
-  const textColor = color == 'black' ? 'white' : '#656c73'
+  const logoColors = getLogoColors(color)
+
+  const containerStyle: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  }
+
+  // needed cause satori keeps reading undefined as black
+  if (logoColors.bg) {
+    containerStyle['background'] = logoColors.bg
+  }
+
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        background: color,
-      }}
-    >
-      <img src={logo} style={{ width: logoWidth, height: logoHeight }} />
+    <div style={containerStyle}>
+      <img
+        src={color === 'monochrome' ? logoWhite : logo}
+        style={{ width: logoWidth, height: logoHeight }}
+      />
       <span
         style={{
           fontSize: 120,
-          color: textColor,
+          color: logoColors.color,
           marginTop: 50,
           fontWeight: 500,
         }}
@@ -39,7 +49,7 @@ const GDSCSquare: React.FC<LogoTemplateProps> = ({ text, color }) => {
       <span
         style={{
           fontSize: 100,
-          color: textColor,
+          color: logoColors.color,
           marginTop: 20,
           fontWeight: 400,
         }}

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Box, Button, ButtonGroup, Stack, useClipboard } from '@chakra-ui/react'
 import backgroundCheckerPattern from '../assets/images/bg-checkerboard.png'
 import { LogoColors, TemplateTypes } from '..'
-import { useGenerateLogo } from '../templates'
+import { getLogoColors, useGenerateLogo } from '../templates'
 import { useState } from 'react'
 import { useMemo } from 'react'
 import { CgSoftwareDownload } from 'react-icons/cg'
@@ -47,6 +47,8 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
     }
   }
 
+  const logoColors = getLogoColors(bg)
+
   return (
     <Stack
       shadow="md"
@@ -61,7 +63,7 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
         minH={0}
         bgPos="center"
         bgImage={backgroundCheckerPattern}
-        bg={bg === 'transparent' ? undefined : bg}
+        bg={logoColors.bg}
         pos="relative"
       >
         <Box w="max-content" maxW="full" h="96" shadow="lg" mx="auto">
@@ -84,6 +86,10 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
             base: 1,
             md: 'unset',
           }}
+          fontSize={{
+            base: 'sm',
+            md: 'unset',
+          }}
         >
           Download Full Resolution
         </Button>
@@ -91,10 +97,6 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
           leftIcon={<AiOutlineLink style={{ fontSize: '1.4em' }} />}
           colorScheme="green"
           onClick={onCopy}
-          flex={{
-            base: 1,
-            md: 'unset',
-          }}
         >
           {hasCopied ? 'Copied' : 'Share'}
         </Button>

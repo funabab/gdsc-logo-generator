@@ -26,7 +26,12 @@ const fontOpenSansBoldBuffer = fetch(fontOopenSansBold).then((res) =>
   res.arrayBuffer()
 )
 
-export const TEMPLATES_COLORS: LogoColors[] = ['white', 'black', 'transparent']
+export const TEMPLATES_COLORS: LogoColors[] = [
+  'white',
+  'black',
+  'transparent',
+  'monochrome',
+]
 
 export const TEMPLATES: Record<
   TemplateTypes,
@@ -47,6 +52,29 @@ export const TEMPLATES: Record<
 
 const DOWNLOAD_IMAGE_MIME = 'image/png'
 const DOWNLOAD_IMAGE_QUALITY = 1
+
+export const getLogoColors: (color: LogoColors) => {
+  bg?: string
+  color: string
+} = (color) => {
+  switch (color) {
+    case 'black':
+    case 'monochrome':
+      return {
+        bg: '#000',
+        color: '#fff',
+      }
+    case 'transparent':
+      return {
+        color: '#656c73',
+      }
+    default:
+      return {
+        bg: '#fff',
+        color: '#656c73',
+      }
+  }
+}
 
 export const useGenerateLogo = (
   ref: React.MutableRefObject<HTMLImageElement | null>,

@@ -1,6 +1,8 @@
 import React from 'react'
 import logo from '../assets/images/logo.svg'
+import logoWhite from '../assets/images/logo-white.svg'
 import { LogoTemplateProps, LogoTemplateSize } from '..'
+import { getLogoColors } from '.'
 
 export const GDSCBannerSize: LogoTemplateSize = {
   width: 1920,
@@ -12,25 +14,32 @@ const logoWidth = 100 * logoAspect
 const logoHeight = 100
 
 const GDSCBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
-  const textColor = color == 'black' ? 'white' : '#656c73'
+  const logoColors = getLogoColors(color)
+
+  const containerStyle: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
+  // needed cause satori keeps reading undefined as black
+  if (logoColors.bg) {
+    containerStyle['background'] = logoColors.bg
+  }
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: color,
-      }}
-    >
-      <img src={logo} style={{ width: logoWidth, height: logoHeight }} />
+    <div style={containerStyle}>
+      <img
+        src={color === 'monochrome' ? logoWhite : logo}
+        style={{ width: logoWidth, height: logoHeight }}
+      />
       <p style={{ display: 'flex', flexDirection: 'column', marginLeft: 20 }}>
         <span
           style={{
             fontSize: 70,
-            color: textColor,
+            color: logoColors.color,
             marginTop: 40,
             fontWeight: 500,
           }}
@@ -40,7 +49,7 @@ const GDSCBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
         <span
           style={{
             fontSize: 40,
-            color: textColor,
+            color: logoColors.color,
             marginTop: 5,
             marginLeft: 20,
             fontWeight: 400,
