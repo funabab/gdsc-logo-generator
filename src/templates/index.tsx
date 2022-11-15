@@ -9,9 +9,6 @@ import {
   TemplateTypes,
 } from '..'
 import GDSCSquare, { GDSCSquareSize } from './GDSCSquare'
-// import fontOopenSansRegular from '../assets/fonts/OpenSans/OpenSans-Regular.ttf'
-// import fontOopenSansMedium from '../assets/fonts/OpenSans/OpenSans-Medium.ttf'
-// import fontOopenSansBold from '../assets/fonts/OpenSans/OpenSans-Bold.ttf'
 import { useRef } from 'react'
 import { useMemo } from 'react'
 import GDSCBanner, { GDSCBannerSize } from './GDSCBanner'
