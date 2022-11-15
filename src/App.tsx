@@ -58,6 +58,7 @@ const App = () => {
         <LogoCard bg={logoBgColor} type="gdsc-square" label={logoLabel} />
         <LogoCard bg={logoBgColor} type="gdsc-banner" label={logoLabel} />
         <LogoCard bg={logoBgColor} type="wtm-square" label={logoLabel} />
+        <LogoCard bg={logoBgColor} type="wtm-banner" label={logoLabel} />
       </Box>
     </Stack>
   )

@@ -16,6 +16,7 @@ import { useRef } from 'react'
 import { useMemo } from 'react'
 import GDSCBanner, { GDSCBannerSize } from './GDSCBanner'
 import WTMSquare, { WTMSquareSize } from './WTMSquare'
+import WTMBanner, { WTMBannerSize } from './WRMBanner'
 
 const fontOpenSansRegularBuffer = fetch(fontOopenSansRegular).then((res) =>
   res.arrayBuffer()
@@ -52,6 +53,10 @@ export const TEMPLATES: Record<
   'wtm-square': {
     size: WTMSquareSize,
     Component: WTMSquare,
+  },
+  'wtm-banner': {
+    size: WTMBannerSize,
+    Component: WTMBanner,
   },
 }
 
