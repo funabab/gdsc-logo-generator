@@ -15,3 +15,4 @@ export type TemplateTypes =
   | 'gdsc-banner'
   | 'wtm-square'
   | 'wtm-banner'
+  | 'gdg-banner'
