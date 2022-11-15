@@ -1,8 +1,9 @@
 import React from 'react'
-import wtmLogo from '../assets/images/womentechmakers.png'
-import wtmLogoWhite from '../assets/images/womentechmakers-white.png'
 import { LogoTemplateProps, LogoTemplateSize } from '..'
 import { getLogoColors } from '.'
+
+const wtmLogo = '/images/womentechmakers.png'
+const wtmLogoWhite = '/images/womentechmakers-white.png'
 
 export const WTMSquareSize: LogoTemplateSize = {
   width: 2048,

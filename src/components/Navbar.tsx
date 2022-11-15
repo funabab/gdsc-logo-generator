@@ -9,7 +9,6 @@ import {
   Link,
   Text,
 } from '@chakra-ui/react'
-import logo from '../assets/images/logo.svg'
 import { VscGithub } from 'react-icons/vsc'
 
 interface Props {}
@@ -29,7 +28,7 @@ const Navbar: React.FC<Props> = () => {
             }}
           >
             <Image
-              src={logo}
+              src="/images/logo.svg"
               h={{
                 base: '5',
                 md: '10',

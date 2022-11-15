@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { Box, Button, ButtonGroup, Stack, useClipboard } from '@chakra-ui/react'
-import backgroundCheckerPattern from '../assets/images/bg-checkerboard.png'
 import { LogoColors, TemplateTypes } from '..'
 import { getLogoColors, useGenerateLogo } from '../templates'
 import { useState } from 'react'
@@ -68,7 +67,7 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
         flex={1}
         minH={0}
         bgPos="center"
-        bgImage={backgroundCheckerPattern}
+        bgImage="/images/bg-checkerboard.png"
         bg={logoColors.bg}
         pos="relative"
       >

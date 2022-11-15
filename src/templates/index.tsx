@@ -9,9 +9,9 @@ import {
   TemplateTypes,
 } from '..'
 import GDSCSquare, { GDSCSquareSize } from './GDSCSquare'
-import fontOopenSansRegular from '../assets/fonts/OpenSans/OpenSans-Regular.ttf'
-import fontOopenSansMedium from '../assets/fonts/OpenSans/OpenSans-Medium.ttf'
-import fontOopenSansBold from '../assets/fonts/OpenSans/OpenSans-Bold.ttf'
+// import fontOopenSansRegular from '../assets/fonts/OpenSans/OpenSans-Regular.ttf'
+// import fontOopenSansMedium from '../assets/fonts/OpenSans/OpenSans-Medium.ttf'
+// import fontOopenSansBold from '../assets/fonts/OpenSans/OpenSans-Bold.ttf'
 import { useRef } from 'react'
 import { useMemo } from 'react'
 import GDSCBanner, { GDSCBannerSize } from './GDSCBanner'
@@ -19,14 +19,14 @@ import WTMSquare, { WTMSquareSize } from './WTMSquare'
 import WTMBanner, { WTMBannerSize } from './WRMBanner'
 import GDGBanner, { GDGBannerSize } from './GDGBanner'
 
-const fontOpenSansRegularBuffer = fetch(fontOopenSansRegular).then((res) =>
-  res.arrayBuffer()
-)
-const fontOpenSansMediumBuffer = fetch(fontOopenSansMedium).then((res) =>
-  res.arrayBuffer()
-)
-const fontOpenSansBoldBuffer = fetch(fontOopenSansBold).then((res) =>
-  res.arrayBuffer()
+const fontOpenSansRegularBuffer = fetch(
+  '/fonts/OpenSans/OpenSans-Regular.ttf'
+).then((res) => res.arrayBuffer())
+const fontOpenSansMediumBuffer = fetch(
+  '/fonts/OpenSans/OpenSans-Medium.ttf'
+).then((res) => res.arrayBuffer())
+const fontOpenSansBoldBuffer = fetch('/fonts/OpenSans/OpenSans-Bold.ttf').then(
+  (res) => res.arrayBuffer()
 )
 
 export const TEMPLATES_COLORS: LogoColors[] = [

@@ -1,8 +1,9 @@
 import React from 'react'
-import logo from '../assets/images/logo.svg'
-import logoWhite from '../assets/images/logo-white.svg'
 import { LogoTemplateProps, LogoTemplateSize } from '..'
 import { getLogoColors } from '.'
+
+const logo = '/images/logo.svg'
+const logoWhite = '/images/logo-white.svg'
 
 export const GDGBannerSize: LogoTemplateSize = {
   width: 1920,
