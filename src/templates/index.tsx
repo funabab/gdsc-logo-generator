@@ -15,6 +15,7 @@ import fontOopenSansBold from '../assets/fonts/OpenSans/OpenSans-Bold.ttf'
 import { useRef } from 'react'
 import { useMemo } from 'react'
 import GDSCBanner, { GDSCBannerSize } from './GDSCBanner'
+import WTMSquare, { WTMSquareSize } from './WTMSquare'
 
 const fontOpenSansRegularBuffer = fetch(fontOopenSansRegular).then((res) =>
   res.arrayBuffer()
@@ -47,6 +48,10 @@ export const TEMPLATES: Record<
   'gdsc-banner': {
     size: GDSCBannerSize,
     Component: GDSCBanner,
+  },
+  'wtm-square': {
+    size: WTMSquareSize,
+    Component: WTMSquare,
   },
 }
 
