@@ -65,7 +65,7 @@ const Navbar: React.FC<Props> = () => {
             aria-label="View source"
             colorScheme="whiteAlpha"
             fontSize="xl"
-            rounded="full"
+            rounded="3xl"
             href="https://github.com/gdsc-kwasu/gdsc-logo-generator"
             as="a"
             icon={<VscGithub />}
