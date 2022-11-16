@@ -23,15 +23,21 @@ const Navbar: React.FC<Props> = () => {
             display="flex"
             alignItems="center"
             columnGap={{
-              base: 2,
+              base: 1,
+              sm: 2,
               md: 3,
             }}
           >
             <Image
               src="/images/logo.svg"
               h={{
-                base: '5',
+                base: 2,
+                sm: '5',
                 md: '10',
+              }}
+              mt={{
+                base: 3,
+                sm: 0,
               }}
               alt=""
             />
@@ -40,7 +46,8 @@ const Navbar: React.FC<Props> = () => {
                 flexShrink={0}
                 as="span"
                 fontSize={{
-                  base: 'lg',
+                  base: 'xs',
+                  sm: 'lg',
                   md: '2xl',
                 }}
               >
@@ -54,6 +61,10 @@ const Navbar: React.FC<Props> = () => {
               mb={{
                 base: 1,
                 md: 2,
+              }}
+              display={{
+                base: 'none',
+                sm: 'inline-block',
               }}
             >
               Logo generator

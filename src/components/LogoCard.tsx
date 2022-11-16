@@ -92,7 +92,8 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
             md: 'unset',
           }}
           fontSize={{
-            base: 'sm',
+            base: 'xs',
+            sm: 'sm',
             md: 'unset',
           }}
         >
@@ -102,6 +103,11 @@ const LogoCard: React.FC<Props> = ({ bg, type, label }) => {
           leftIcon={<AiOutlineLink style={{ fontSize: '1.4em' }} />}
           colorScheme="green"
           onClick={onCopy}
+          fontSize={{
+            base: 'xs',
+            sm: 'sm',
+            md: 'unset',
+          }}
         >
           {hasCopied ? 'Copied' : 'Share'}
         </Button>

@@ -119,12 +119,29 @@ export const useGenerateLogo = (
       const context = canvas.getContext('2d')
       context?.clearRect(0, 0, size.width, size.height)
       context?.drawImage(img, 0, 0)
-      anchor.setAttribute(
-        'href',
-        canvas.toDataURL(DOWNLOAD_IMAGE_MIME, DOWNLOAD_IMAGE_QUALITY)
-      )
       anchor.setAttribute('download', '')
-      anchor.click()
+
+      canvas.toBlob(
+        (blob) => {
+          let objUrl: string | undefined = undefined
+          if (blob) {
+            objUrl = URL.createObjectURL(blob)
+            anchor.setAttribute('href', objUrl)
+          } else {
+            anchor.setAttribute(
+              'href',
+              canvas.toDataURL(DOWNLOAD_IMAGE_MIME, DOWNLOAD_IMAGE_QUALITY)
+            )
+          }
+          anchor.click()
+
+          if (objUrl) {
+            URL.revokeObjectURL(objUrl)
+          }
+        },
+        DOWNLOAD_IMAGE_MIME,
+        DOWNLOAD_IMAGE_QUALITY
+      )
     }
 
     const svg = await generateLogo(type, props)
