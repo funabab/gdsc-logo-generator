@@ -10,7 +10,7 @@ import { RiCheckboxBlankFill, RiCheckboxBlankLine } from 'react-icons/ri'
 import { MdInvertColors } from 'react-icons/md'
 import { LogoColors } from '..'
 
-export const MAX_CHARS = 36
+export const MAX_CHARS = 100
 
 interface Props {
   label: string

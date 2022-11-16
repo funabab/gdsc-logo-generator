@@ -23,6 +23,8 @@ const WTMSquare: React.FC<LogoTemplateProps> = ({ text, color }) => {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    paddingLeft: 100,
+    paddingRight: 100,
   }
 
   // needed cause satori keeps reading undefined as black
@@ -52,6 +54,7 @@ const WTMSquare: React.FC<LogoTemplateProps> = ({ text, color }) => {
           color: logoColors.color,
           marginTop: 20,
           fontWeight: 400,
+          textAlign: 'center',
         }}
       >
         {text}

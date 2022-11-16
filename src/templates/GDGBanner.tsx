@@ -33,21 +33,23 @@ const GDGBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
 
   return (
     <div style={containerStyle}>
-      <img
-        src={color === 'monochrome' ? logoWhite : logo}
-        style={{ width: logoWidth, height: logoHeight }}
-      />
-      <p style={{ display: 'flex', flexDirection: 'column', marginLeft: 20 }}>
-        <span
-          style={{
-            fontSize: 80,
-            color: logoColors.color,
-            fontWeight: 500,
-          }}
-        >
-          GDG {text}
-        </span>
-      </p>
+      <div style={{ display: 'flex', maxWidth: '80%' }}>
+        <img
+          src={color === 'monochrome' ? logoWhite : logo}
+          style={{ width: logoWidth, height: logoHeight, alignSelf: 'center' }}
+        />
+        <p style={{ display: 'flex', flexDirection: 'column', marginLeft: 20 }}>
+          <span
+            style={{
+              fontSize: 80,
+              color: logoColors.color,
+              fontWeight: 500,
+            }}
+          >
+            GDG {text}
+          </span>
+        </p>
+      </div>
     </div>
   )
 }

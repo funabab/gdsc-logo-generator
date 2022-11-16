@@ -23,6 +23,8 @@ const GDSCBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
   }
 
   // needed cause satori keeps reading undefined as black
@@ -36,12 +38,20 @@ const GDSCBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
         src={color === 'monochrome' ? logoWhite : logo}
         style={{ width: logoWidth, height: logoHeight }}
       />
-      <p style={{ display: 'flex', flexDirection: 'column', marginLeft: 20 }}>
+      <p
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          maxWidth: '80%',
+          marginLeft: 20,
+        }}
+      >
         <span
           style={{
             fontSize: 70,
             color: logoColors.color,
             marginTop: 40,
+            display: 'flex',
             fontWeight: 500,
           }}
         >
@@ -53,6 +63,7 @@ const GDSCBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
             color: logoColors.color,
             marginTop: 5,
             marginLeft: 20,
+            display: 'flex',
             fontWeight: 400,
           }}
         >

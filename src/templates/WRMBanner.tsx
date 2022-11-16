@@ -35,7 +35,14 @@ const WTMBanner: React.FC<LogoTemplateProps> = ({ color, text }) => {
         src={color === 'monochrome' ? wtmLogoWhite : wtmLogo}
         style={{ width: logoWidth, height: logoHeight }}
       />
-      <p style={{ display: 'flex', flexDirection: 'column', marginLeft: 20 }}>
+      <p
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          marginLeft: 20,
+          maxWidth: '80%',
+        }}
+      >
         <span
           style={{
             fontSize: 70,
